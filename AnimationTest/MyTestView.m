@@ -91,6 +91,8 @@
      * 三种返回值： null--无动画
      *            nil--隐式动画，默认0.25s
      *            实现了CAAction的动画对象，按其中内容执行动画
+     *
+     * 当_showAnimation为true时，若本身无动画，强制返回nil使其执行默认的隐式动画
      */
     
     id<CAAction> action = [super actionForLayer:layer forKey:event];

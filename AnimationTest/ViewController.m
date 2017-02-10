@@ -10,10 +10,10 @@
 #import "MoveLogoImg.h"
 #import "SimpleAnimeVC.h"
 #import "UIViewAnimationTestVC.h"
+#import "PMLayerTestVC.h"
 
 @interface ViewController ()
 {
-    dispatch_queue_t    dispatchQueue;
     NSArray<NSString *> *_tests;
 }
 
@@ -66,6 +66,15 @@
     else if (indexPath.row == 1)
     {
         UIViewAnimationTestVC *vc = [[UIViewAnimationTestVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if (indexPath.row == 2)
+    {
+        
+    }
+    else if (indexPath.row == 3)
+    {
+        PMLayerTestVC *vc = [[PMLayerTestVC alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

@@ -111,7 +111,8 @@
     CGRect originBounds = _testView.bounds;
     
     /** UIView动画会生成一个CABassicAnimation,默认时间函数为EaseInEaseOut,默认填充方式为both
-     ** fromValue为动画前的值，没有toValue和byValue:即会在动画前与当前值之间进行插值，当前值就是我们block中设置的值，也是modelLayer的对应值 */
+     ** fromValue为动画前的值，没有toValue和byValue:即会在动画前与当前值之间进行插值，当前值就是我们block中设置的值，也是modelLayer的对应值
+     ** 可在MyTestView的actionForLayer方法中断点查看 */
     
     [UIView animateWithDuration:3 animations:^(void){
         _recordTime = [[NSDate date] timeIntervalSince1970]*1000;
