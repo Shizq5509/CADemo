@@ -11,7 +11,9 @@
 
 @interface UIViewAnimationTestVC ()
 {
-    UInt64 _recordTime;
+    UInt64 _recordTime3;
+    UInt64 _recordTime1;
+
 }
 
 @property(nonatomic,strong) MyTestView  *testView;
@@ -115,7 +117,7 @@
      ** 可在MyTestView的actionForLayer方法中断点查看 */
     
     [UIView animateWithDuration:3 animations:^(void){
-        _recordTime = [[NSDate date] timeIntervalSince1970]*1000;
+        _recordTime3 = [[NSDate date] timeIntervalSince1970]*1000;
         
         if (_testView.bounds.size.width > 150)
         {
@@ -127,7 +129,7 @@
         }
         
         /** 在block中set新值会进行判断，如果没有发生改变则不会调用actionForLayer，直接set新值并回调finished方法
-         ** 如果手动调用actionForLayer，会返回一个动画对象，但我们并没有将这个动画对象加到layer上面，也就不会回调dinished方法。*/
+         ** 如果手动调用actionForLayer，会返回一个动画对象，但我们并没有将这个动画对象加到layer上面，也就不会回调finished方法。*/
 //        _testView.bounds = originBounds;
 //        [_testView actionForLayer:_testView.layer forKey:@"bounds"];
         
@@ -135,7 +137,7 @@
         NSLog(@"%d",finished);
         
         UInt64 recordTime = [[NSDate date] timeIntervalSince1970]*1000;
-        NSLog(@"%llu毫秒",recordTime-_recordTime);
+        NSLog(@"%llu毫秒",recordTime-_recordTime3);
     }];
 }
 
@@ -144,7 +146,7 @@
 //    NSLog(@"presentationLayer:%f",_testView.layer.presentationLayer.bounds.size.height);
     
     [UIView animateWithDuration:1 animations:^(void){
-        _recordTime = [[NSDate date] timeIntervalSince1970]*1000;
+        _recordTime1 = [[NSDate date] timeIntervalSince1970]*1000;
         
         if (_testView.bounds.size.width > 150)
         {
@@ -159,7 +161,7 @@
         NSLog(@"%d",finished);
         
         UInt64 recordTime = [[NSDate date] timeIntervalSince1970]*1000;
-        NSLog(@"%llu毫秒",recordTime-_recordTime);
+        NSLog(@"%llu毫秒",recordTime-_recordTime1);
     }];
 }
 

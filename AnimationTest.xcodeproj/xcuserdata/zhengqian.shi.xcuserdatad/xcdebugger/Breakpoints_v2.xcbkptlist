@@ -9,14 +9,92 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AnimationTest/MyTestView.m"
-            timestampString = "508405721.094433"
+            filePath = "AnimationTest/UIViewAnimationTestVC.m"
+            timestampString = "508497731.708913"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "-actionForLayer:forKey:"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "-btn4Click:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnimationTest/UIViewAnimationTestVC.m"
+            timestampString = "508508463.476656"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
+            landmarkName = "-btn4Click:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[UIViewAnimationTestVC btn4Click:]"
+                  moduleName = "AnimationTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qitmac000263/Desktop/ios_demo/objective-c/AnimationTest/AnimationTest/UIViewAnimationTestVC.m"
+                  timestampString = "508512983.036979"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "160"
+                  endingLineNumber = "160"
+                  offsetFromSymbolStart = "165">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_.83"
+                  moduleName = "AnimationTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qitmac000263/Desktop/ios_demo/objective-c/AnimationTest/AnimationTest/UIViewAnimationTestVC.m"
+                  timestampString = "508512983.040416"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "160"
+                  endingLineNumber = "160"
+                  offsetFromSymbolStart = "51">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.84"
+                  moduleName = "AnimationTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qitmac000263/Desktop/ios_demo/objective-c/AnimationTest/AnimationTest/UIViewAnimationTestVC.m"
+                  timestampString = "508512983.041801"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "160"
+                  endingLineNumber = "160"
+                  offsetFromSymbolStart = "29">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__35-[UIViewAnimationTestVC btn4Click:]_block_invoke.86"
+                  moduleName = "AnimationTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qitmac000263/Desktop/ios_demo/objective-c/AnimationTest/AnimationTest/UIViewAnimationTestVC.m"
+                  timestampString = "508512983.042964"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "161"
+                  endingLineNumber = "161"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

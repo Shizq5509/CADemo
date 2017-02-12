@@ -10,12 +10,18 @@
 
 @implementation MyTestLayer
 
+- (instancetype)init
+{
+    self = [super init];
+    return self;
+}
+
 - (void)setFrame:(CGRect)frame
 {
 #ifdef printLog
-    NSLog(@"----layer setFrame -%@",self);
+    NSLog(@"-----layer setFrame");
     [super setFrame:frame];
-    NSLog(@"----layer setFrame end -%@",self);
+    NSLog(@"-----layer setFrame end");
 #else
     [super setFrame:frame];
 #endif
@@ -24,9 +30,9 @@
 - (void)setPosition:(CGPoint)position
 {
 #ifdef printLog
-    NSLog(@"----layer setPosition -%@",self);
+    NSLog(@"-----layer setPosition");
     [super setPosition:position];
-    NSLog(@"----layer setPosition end -%@",self);
+    NSLog(@"-----layer setPosition end");
 #else
     [super setPosition:position];
 #endif
@@ -35,9 +41,9 @@
 - (void)setBounds:(CGRect)bounds
 {
 #ifdef printLog
-    NSLog(@"----layer setBounds -%@",self);
+    NSLog(@"-----layer setBounds");
     [super setBounds:bounds];
-    NSLog(@"----layer setBounds end -%@",self);
+    NSLog(@"-----layer setBounds end");
 #else
     [super setBounds:bounds];
 #endif
@@ -46,9 +52,9 @@
 - (CGPoint)position
 {
 #ifdef printLog
-    NSLog(@"----layer getPosition -%@",self);
+    NSLog(@"----layer getPosition");
     CGPoint position = [super position];
-    NSLog(@"----layer getPosition end -%@",self);
+    NSLog(@"----layer getPosition end");
 #else
     CGPoint position = [super position];
 #endif
@@ -58,9 +64,9 @@
 - (CGRect)bounds
 {
 #ifdef printLog
-    NSLog(@"----layer getBounds -%@",self);
+    NSLog(@"----layer getBounds");
     CGRect bounds = [super bounds];
-    NSLog(@"----layer getBounds end -%@",self);
+    NSLog(@"----layer getBounds end");
 #else
     CGRect bounds = [super bounds];
 #endif
@@ -70,9 +76,9 @@
 - (CGRect)frame
 {
 #ifdef printLog
-    NSLog(@"----layer getFrame -%@",self);
+    NSLog(@"----layer getFrame");
     CGRect frame = [super frame];
-    NSLog(@"----layer getFrame end -%@",self);
+    NSLog(@"----layer getFrame end");
 #else
     CGRect frame = [super frame];
 #endif
