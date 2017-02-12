@@ -11,6 +11,7 @@
 #import "SimpleAnimeVC.h"
 #import "UIViewAnimationTestVC.h"
 #import "PMLayerTestVC.h"
+#import "CAPauseTestVC.h"
 
 @interface ViewController ()
 {
@@ -70,7 +71,8 @@
     }
     else if (indexPath.row == 2)
     {
-        
+        CAPauseTestVC *vc = [[CAPauseTestVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
     else if (indexPath.row == 3)
     {
