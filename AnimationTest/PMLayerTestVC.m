@@ -113,9 +113,14 @@
     animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2 - 100)];
     animation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2 - 50)];
     animation.duration = 1;
-//    animation.removedOnCompletion = NO;
-//    animation.fillMode = kCAFillModeForwards;
+    animation.removedOnCompletion = NO;
+    animation.fillMode = kCAFillModeForwards;
     [_testView.layer addAnimation:animation forKey:@"baanimation"];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((2) * NSEC_PER_SEC)), dispatchQueue, ^{
+        NSLog(@"presentationLayer %@ y %f",_testView.layer.presentationLayer, _testView.layer.presentationLayer.position.y);
+        NSLog(@"layer.modelLayer %@ y %f",_testView.layer.modelLayer,_testView.layer.modelLayer.position.y);
+    });
 }
 
 - (void)btn4Click:(id)sender
