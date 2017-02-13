@@ -26,6 +26,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.title = @"CoreAnimationTest";
     
     [self initTests];
     
@@ -61,34 +63,36 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UIViewController *vc;
+    
     if (indexPath.row == 0)
     {
-        SimpleAnimeVC *vc = [[SimpleAnimeVC alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
+        vc = [[SimpleAnimeVC alloc] init];
     }
     else if (indexPath.row == 1)
     {
-        UIViewAnimationTestVC *vc = [[UIViewAnimationTestVC alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
+        vc = [[UIViewAnimationTestVC alloc] init];
     }
     else if (indexPath.row == 2)
     {
-        CAPauseTestVC *vc = [[CAPauseTestVC alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
+        vc = [[CAPauseTestVC alloc] init];
     }
     else if (indexPath.row == 3)
     {
-        PMLayerTestVC *vc = [[PMLayerTestVC alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
+        vc = [[PMLayerTestVC alloc] init];
     }
     else if (indexPath.row == 4)
     {
-        TimeFuncTestVC *vc = [[TimeFuncTestVC alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
+        vc = [[TimeFuncTestVC alloc] init];
     }
     else if (indexPath.row == 5)
     {
-        MaskLayerTestVC *vc = [[MaskLayerTestVC alloc] init];
+        vc = [[MaskLayerTestVC alloc] init];
+    }
+    
+    if (vc)
+    {
+        vc.title = _tests[indexPath.row];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
