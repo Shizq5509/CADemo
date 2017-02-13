@@ -21,6 +21,7 @@
 		885486D71E35DA0F00D9740B /* MyTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 885486D61E35DA0F00D9740B /* MyTestView.m */; };
 		88950E931E4C794500AC4A35 /* UIViewAnimationTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88950E921E4C794500AC4A35 /* UIViewAnimationTestVC.m */; };
 		88950E971E4DA9D000AC4A35 /* PMLayerTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88950E961E4DA9D000AC4A35 /* PMLayerTestVC.m */; };
+		88F2E5171E51576D0052D479 /* TimeFuncTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F2E5161E51576D0052D479 /* TimeFuncTestVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 		88950E921E4C794500AC4A35 /* UIViewAnimationTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewAnimationTestVC.m; sourceTree = "<group>"; };
 		88950E951E4DA9D000AC4A35 /* PMLayerTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMLayerTestVC.h; sourceTree = "<group>"; };
 		88950E961E4DA9D000AC4A35 /* PMLayerTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMLayerTestVC.m; sourceTree = "<group>"; };
+		88F2E5151E51576D0052D479 /* TimeFuncTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeFuncTestVC.h; sourceTree = "<group>"; };
+		88F2E5161E51576D0052D479 /* TimeFuncTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeFuncTestVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +140,8 @@
 				88950E961E4DA9D000AC4A35 /* PMLayerTestVC.m */,
 				884B295D1E500EDA007DA944 /* CAPauseTestVC.h */,
 				884B295E1E500EDA007DA944 /* CAPauseTestVC.m */,
+				88F2E5151E51576D0052D479 /* TimeFuncTestVC.h */,
+				88F2E5161E51576D0052D479 /* TimeFuncTestVC.m */,
 				880D19A61E29CC0A00A0D3C8 /* Info.plist */,
 				880D19951E29CC0A00A0D3C8 /* Supporting Files */,
 			);
@@ -326,6 +331,7 @@
 				880D19971E29CC0A00A0D3C8 /* main.m in Sources */,
 				885486D41E35D9E000D9740B /* MyTestLayer.m in Sources */,
 				884B295F1E500EDA007DA944 /* CAPauseTestVC.m in Sources */,
+				88F2E5171E51576D0052D479 /* TimeFuncTestVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

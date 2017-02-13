@@ -12,6 +12,7 @@
 #import "UIViewAnimationTestVC.h"
 #import "PMLayerTestVC.h"
 #import "CAPauseTestVC.h"
+#import "TimeFuncTestVC.h"
 
 @interface ViewController ()
 {
@@ -79,11 +80,16 @@
         PMLayerTestVC *vc = [[PMLayerTestVC alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
+    else if (indexPath.row == 4)
+    {
+        TimeFuncTestVC *vc = [[TimeFuncTestVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (void)initTests
 {
-    _tests = @[@"简单动画",@"UIView动画",@"动画的暂停和继续",@"modelLayer与presentationLayer"];
+    _tests = @[@"简单动画",@"UIView动画",@"动画的暂停和继续",@"modelLayer与presentationLayer",@"模拟时间函数插值"];
 }
 
 @end
