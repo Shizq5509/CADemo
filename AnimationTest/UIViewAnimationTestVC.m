@@ -130,8 +130,8 @@
         
         /** 在block中set新值会进行判断，如果没有发生改变则不会调用actionForLayer，直接set新值并回调finished方法
          ** 如果手动调用actionForLayer，会返回一个动画对象，但我们并没有将这个动画对象加到layer上面，也就不会回调finished方法。*/
-//        _testView.bounds = originBounds;
-//        [_testView actionForLayer:_testView.layer forKey:@"bounds"];
+//       _testView.bounds = originBounds;
+//       NSLog(@"%@",[_testView actionForLayer:_testView.layer forKey:@"bounds"]);
         
     } completion:^(BOOL finished){
         NSLog(@"%d",finished);
