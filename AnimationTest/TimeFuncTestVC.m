@@ -132,7 +132,11 @@
     CGFloat nowX = _testView.center.x;
     CGFloat nowY = fromY + percent*(toY - fromY);
     
-    _speed.text = [NSString stringWithFormat:@"实时速度：%.1f",2*(toY - fromY)*percent/duration];
+    NSInteger timeScale = showedTime/duration * 60;
+    if (timeScale%4 == 0)
+    {
+        _speed.text = [NSString stringWithFormat:@"实时速度：%.1f",2*(toY - fromY)*percent/duration];
+    }
     if (1 - percent <CGFLOAT_MIN)
     {
         _speed.text = [NSString stringWithFormat:@"实时速度：0"];
