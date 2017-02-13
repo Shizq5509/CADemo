@@ -13,6 +13,7 @@
 #import "PMLayerTestVC.h"
 #import "CAPauseTestVC.h"
 #import "TimeFuncTestVC.h"
+#import "MaskLayerTestVC.h"
 
 @interface ViewController ()
 {
@@ -85,11 +86,16 @@
         TimeFuncTestVC *vc = [[TimeFuncTestVC alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
+    else if (indexPath.row == 5)
+    {
+        MaskLayerTestVC *vc = [[MaskLayerTestVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (void)initTests
 {
-    _tests = @[@"简单动画",@"UIView动画",@"动画的暂停和继续",@"modelLayer与presentationLayer",@"模拟时间函数插值"];
+    _tests = @[@"简单动画",@"UIView动画",@"动画的暂停和继续",@"modelLayer与presentationLayer",@"模拟时间函数插值",@"刮刮卡"];
 }
 
 @end
