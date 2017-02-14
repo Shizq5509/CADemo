@@ -14,6 +14,7 @@
 #import "CAPauseTestVC.h"
 #import "TimeFuncTestVC.h"
 #import "MaskLayerTestVC.h"
+#import "EmitterLayerTestVC.h"
 
 @interface ViewController ()
 {
@@ -89,6 +90,10 @@
     {
         vc = [[MaskLayerTestVC alloc] init];
     }
+    else if (indexPath.row == 6)
+    {
+        vc = [[EmitterLayerTestVC alloc] init];
+    }
     
     if (vc)
     {
@@ -99,7 +104,7 @@
 
 - (void)initTests
 {
-    _tests = @[@"简单动画",@"UIView动画",@"动画的暂停和继续",@"modelLayer与presentationLayer",@"模拟时间函数插值",@"刮刮卡"];
+    _tests = @[@"简单动画",@"UIView动画",@"动画的暂停和继续",@"modelLayer与presentationLayer",@"模拟时间函数插值",@"蒙版实现刮刮卡效果",@"粒子效果"];
 }
 
 @end

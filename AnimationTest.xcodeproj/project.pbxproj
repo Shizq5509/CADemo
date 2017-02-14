@@ -20,6 +20,7 @@
 		885486D41E35D9E000D9740B /* MyTestLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 885486D31E35D9E000D9740B /* MyTestLayer.m */; };
 		885486D71E35DA0F00D9740B /* MyTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 885486D61E35DA0F00D9740B /* MyTestView.m */; };
 		888F2FAB1E5191880058A63B /* MaskLayerTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 888F2FAA1E5191880058A63B /* MaskLayerTestVC.m */; };
+		888F2FAE1E52D9EF0058A63B /* EmitterLayerTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 888F2FAD1E52D9EF0058A63B /* EmitterLayerTestVC.m */; };
 		88950E931E4C794500AC4A35 /* UIViewAnimationTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88950E921E4C794500AC4A35 /* UIViewAnimationTestVC.m */; };
 		88950E971E4DA9D000AC4A35 /* PMLayerTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88950E961E4DA9D000AC4A35 /* PMLayerTestVC.m */; };
 		88F2E5171E51576D0052D479 /* TimeFuncTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F2E5161E51576D0052D479 /* TimeFuncTestVC.m */; };
@@ -70,6 +71,8 @@
 		885486D61E35DA0F00D9740B /* MyTestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTestView.m; sourceTree = "<group>"; };
 		888F2FA91E5191880058A63B /* MaskLayerTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaskLayerTestVC.h; sourceTree = "<group>"; };
 		888F2FAA1E5191880058A63B /* MaskLayerTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaskLayerTestVC.m; sourceTree = "<group>"; };
+		888F2FAC1E52D9EF0058A63B /* EmitterLayerTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmitterLayerTestVC.h; sourceTree = "<group>"; };
+		888F2FAD1E52D9EF0058A63B /* EmitterLayerTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmitterLayerTestVC.m; sourceTree = "<group>"; };
 		88950E911E4C794500AC4A35 /* UIViewAnimationTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewAnimationTestVC.h; sourceTree = "<group>"; };
 		88950E921E4C794500AC4A35 /* UIViewAnimationTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewAnimationTestVC.m; sourceTree = "<group>"; };
 		88950E951E4DA9D000AC4A35 /* PMLayerTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMLayerTestVC.h; sourceTree = "<group>"; };
@@ -195,6 +198,8 @@
 			children = (
 				888F2FA91E5191880058A63B /* MaskLayerTestVC.h */,
 				888F2FAA1E5191880058A63B /* MaskLayerTestVC.m */,
+				888F2FAC1E52D9EF0058A63B /* EmitterLayerTestVC.h */,
+				888F2FAD1E52D9EF0058A63B /* EmitterLayerTestVC.m */,
 			);
 			name = LayerSubClassTest;
 			path = AnimationTest/LayerSubClassTest;
@@ -337,6 +342,7 @@
 			files = (
 				885486CC1E2F571200D9740B /* SimpleAnimeVC.m in Sources */,
 				880D199D1E29CC0A00A0D3C8 /* ViewController.m in Sources */,
+				888F2FAE1E52D9EF0058A63B /* EmitterLayerTestVC.m in Sources */,
 				888F2FAB1E5191880058A63B /* MaskLayerTestVC.m in Sources */,
 				885486D71E35DA0F00D9740B /* MyTestView.m in Sources */,
 				88950E971E4DA9D000AC4A35 /* PMLayerTestVC.m in Sources */,
