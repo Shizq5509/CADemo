@@ -38,12 +38,17 @@
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.tableView.rowHeight = 50;
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
     [self makeBlurBack];
     
     [self initEmitter];
     
     [self makeSnow];
+    
+    [super viewWillAppear:animated];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
