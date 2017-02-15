@@ -21,7 +21,7 @@
     
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    ViewController *vc = [ViewController new];
+    ViewController *vc = [[ViewController alloc] initWithStyle:UITableViewStyleGrouped];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     [_window setRootViewController:nav];
     [_window makeKeyAndVisible];

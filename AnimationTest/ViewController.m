@@ -21,6 +21,9 @@
     NSArray<NSString *> *_tests;
 }
 
+@property(nonatomic,strong) CAEmitterLayer  *testLayer;
+@property(nonatomic,strong) UIImageView     *backImg;
+
 @end
 
 @implementation ViewController
@@ -33,8 +36,14 @@
     [self initTests];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
-    self.tableView.separatorStyle = UITableViewStylePlain;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.tableView.rowHeight = 50;
+    
+    [self makeBlurBack];
+    
+    [self initEmitter];
+    
+    [self makeSnow];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -57,6 +66,7 @@
     if (indexPath.row >= 0 && indexPath.row < _tests.count)
     {
         cell.textLabel.text = _tests[indexPath.row];
+        cell.backgroundColor = [UIColor colorWithWhite:1 alpha:0.4];
     }
     
     return cell;
@@ -105,6 +115,45 @@
 - (void)initTests
 {
     _tests = @[@"简单动画",@"UIView动画",@"动画的暂停和继续",@"modelLayer与presentationLayer",@"模拟时间函数插值",@"蒙版实现刮刮卡效果",@"粒子效果"];
+}
+
+- (void)makeBlurBack
+{
+    _backImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg1"]];
+    
+    self.view.backgroundColor = [UIColor cyanColor];
+    self.tableView.backgroundView = _backImg;
+    
+    UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:blur];
+    blurView.alpha = 0.93;
+    blurView.frame = self.tableView.frame;
+    [_backImg addSubview:blurView];
+}
+
+- (void)makeSnow
+{
+    CAEmitterCell *snowCell = [CAEmitterCell emitterCell];
+    snowCell.contents = (__bridge id _Nullable)([UIImage imageNamed:@"snow.png"].CGImage);
+    snowCell.birthRate = 5;
+    snowCell.lifetime = 20;
+    snowCell.velocity = 100;
+    snowCell.velocityRange = 50;
+    snowCell.emissionLongitude = M_PI_2;
+    snowCell.emissionRange = M_PI_2;
+    snowCell.scaleRange = 0.5;
+    
+    _testLayer.emitterCells = @[snowCell];
+}
+
+- (void)initEmitter
+{
+    _testLayer = [CAEmitterLayer layer];
+    _testLayer.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    _testLayer.renderMode = kCAEmitterLayerAdditive;
+    _testLayer.emitterPosition = CGPointMake(self.view.frame.size.width/2, -35);
+    _testLayer.emitterSize = CGSizeMake(self.view.frame.size.width, 20);
+    [self.view.layer addSublayer:_testLayer];
 }
 
 @end
