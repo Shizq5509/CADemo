@@ -17,6 +17,10 @@ typedef enum : NSUInteger {
 @interface CAPauseTestVC ()<CAAnimationDelegate>
 {
     BtnStatus _btnStatus;
+    CGFloat _sliderValue;
+    CGFloat _fromValue;
+    CGFloat _toValue;
+    CADisplayLink *_displayLink;
 }
 @property(nonatomic,strong) UIButton    *btnControl;
 @property(nonatomic,strong) CALayer     *testLayer;
@@ -38,6 +42,19 @@ typedef enum : NSUInteger {
     [self initViewSubs];
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [_displayLink removeFromRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+    [_displayLink invalidate];
+    _displayLink = nil;
+    [_testAnimation setDelegate:nil];
+}
+
+- (void)dealloc
+{
+    NSLog(@"dealloc");
+}
+
 - (void)initData
 {
     _btnControl = 0;
@@ -46,6 +63,9 @@ typedef enum : NSUInteger {
     _testAnimation.toValue = (__bridge id _Nullable)(([UIColor yellowColor].CGColor));
     _testAnimation.duration = 3.0;
     [_testAnimation setDelegate:self];
+    
+    _fromValue = CGColorGetComponents([UIColor redColor].CGColor)[1];
+    _toValue = CGColorGetComponents([UIColor yellowColor].CGColor)[1];
 }
 
 - (void)initViewSubs
@@ -66,6 +86,7 @@ typedef enum : NSUInteger {
     [_slider setBackgroundColor:[UIColor colorWithWhite:0.9 alpha:0.2]];
     [_slider setContinuous:YES];
     [_slider addTarget:self action:@selector(onSliderChanged:) forControlEvents:UIControlEventValueChanged];
+    _sliderValue = _slider.value;
     [self.view addSubview:_slider];
     
     _btnControl = [[UIButton alloc] initWithFrame:CGRectMake(_slider.center.x - 50, _testLayer2.position.y + 60, 100, 30)];
@@ -73,16 +94,19 @@ typedef enum : NSUInteger {
     [_btnControl setTitle:@"开 始" forState:UIControlStateNormal];
     [_btnControl addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_btnControl];
+    
+    _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(onDisplayLink:)];
+    [_displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
 }
 
 - (void)btnClick:(id)sender
 {
-//    CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(onDisplayLink:)];
-//    [displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
-    
     if (BtnStatusStart == _btnStatus)
     {
+        NSLog(@"layerCurrentTime:%f",[_testLayer convertTime:CACurrentMediaTime() fromLayer:nil]);
+        
         [_testLayer2 addAnimation:_testAnimation forKey:@"testAnimation"];
+        [_testLayer addAnimation:_testAnimation forKey:@"testAnimation"];
         _btnStatus = BtnStatusPause;
         [_btnControl setTitle:@"暂 停" forState:UIControlStateNormal];
     }
@@ -100,29 +124,40 @@ typedef enum : NSUInteger {
     }
 }
 
-//- (void)onDisplayLink:(CADisplayLink *)link
-//{
-//    if (_testLayer.animationKeys.count == 0)
-//    {
-//        _btnStatus = BtnStatusStart;
-//        [_btnControl setTitle:@"开 始" forState:UIControlStateNormal];
-//        _slider.value = 0;
-//        [link invalidate];
-//        return;
-//    }
-//    
-//    if (BtnStatusPause == _btnStatus)
-//    {
-//        CGFloat nowValue = CGColorGetComponents(_testLayer.presentationLayer.backgroundColor)[1];
-//        
-//        _slider.value = (nowValue - _fromValue)/(_toValue - _fromValue);
-//    }
-//}
+- (void)onDisplayLink:(CADisplayLink *)link
+{
+    if (_testLayer2.animationKeys.count == 0)
+    {
+        _btnStatus = BtnStatusStart;
+        [_btnControl setTitle:@"开 始" forState:UIControlStateNormal];
+        _slider.value = 0;
+    }
+    else if (_testLayer.speed < 0.0001 && BtnStatusContinue != _btnStatus)
+    {
+        _btnStatus = BtnStatusContinue;
+        [_btnControl setTitle:@"继 续" forState:UIControlStateNormal];
+    }
+    
+    if (BtnStatusStart != _btnStatus)
+    {
+        CGFloat nowValue = CGColorGetComponents(_testLayer.presentationLayer.backgroundColor)[1];
+        
+        _slider.value = (nowValue - _fromValue)/(_toValue - _fromValue);
+        _sliderValue = _slider.value;
+    }
+}
 
 - (void)pauseAnimation
 {
     _testLayer2.timeOffset = [_testLayer2 convertTime:CACurrentMediaTime() fromLayer:nil];
     _testLayer2.speed = 0;
+    
+    _testLayer.timeOffset = [_testLayer convertTime:CACurrentMediaTime() fromLayer:nil];
+    _testLayer.speed = 0;
+    
+    NSLog(@"layerCurrentTime:%f",[_testLayer convertTime:CACurrentMediaTime() fromLayer:nil]);
+    
+    NSLog(@"layerTimeOffset:%f",_testLayer.timeOffset);
 }
 
 - (void)continueAnimation
@@ -130,6 +165,15 @@ typedef enum : NSUInteger {
     _testLayer2.beginTime = CACurrentMediaTime() - _testLayer2.timeOffset;
     _testLayer2.timeOffset = 0;
     _testLayer2.speed = 1;
+    
+    _testLayer.beginTime = CACurrentMediaTime() - _testLayer.timeOffset;
+    _testLayer.timeOffset = 0;
+    _testLayer.speed = 1;
+    
+    NSLog(@"layerCurrentTime:%f",[_testLayer convertTime:CACurrentMediaTime() fromLayer:nil]);
+    NSLog(@"currentTime:%f",CACurrentMediaTime());
+    NSLog(@"layerTimeOffset:%f",_testLayer.timeOffset);
+    NSLog(@"beginTime:%f",_testLayer.beginTime);
 }
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag;
@@ -142,11 +186,25 @@ typedef enum : NSUInteger {
 {
     if (_testLayer.animationKeys.count == 0)
     {
-        [_testLayer addAnimation:_testAnimation forKey:@"testAnimation"];
+//        [_testLayer addAnimation:_testAnimation forKey:@"testAnimation"];
+//        [_testLayer2 addAnimation:_testAnimation forKey:@"testAnimation"];
+
+//        [self pauseAnimation];
+        
+        [self btnClick:nil];
+        [self btnClick:nil];
     }
-    _testLayer.speed = 0;
     
-    _testLayer.timeOffset = 3*_slider.value;
+    if (_testLayer.speed < 0.0001)
+    {
+        _testLayer.timeOffset += 3*(_slider.value - _sliderValue);
+        _testLayer2.timeOffset += 3*(_slider.value - _sliderValue);
+    }
+    
+    NSLog(@"layerCurrentTime:%f",[_testLayer convertTime:CACurrentMediaTime() fromLayer:nil]);
+    NSLog(@"layerTimeOffset:%f",_testLayer.timeOffset);
+    
+    _sliderValue = _slider.value;
 }
 
 @end

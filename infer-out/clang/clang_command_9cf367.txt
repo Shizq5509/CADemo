@@ -1,1 +1,0 @@
-'-###' '@/Users/qitmac000263/Desktop/ios_demo/objective-c/AnimationTest/infer-out/clang/cdb_clang_args_db687e.txt' '-fno-cxx-modules' '-Qunused-arguments' '-Wno-ignored-optimization-argument'

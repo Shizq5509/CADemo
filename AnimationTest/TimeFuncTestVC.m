@@ -87,7 +87,7 @@
 
 - (void)onDisplay1:(CADisplayLink *)displk
 {
-    NSTimeInterval duration = 3;
+    NSTimeInterval duration = 2;
     CGFloat fromY = 180;
     CGFloat toY = self.view.frame.size.height - 25;
     
@@ -114,7 +114,7 @@
 
 - (void)onDisplay2:(CADisplayLink *)displk
 {
-    NSTimeInterval duration = 3;
+    NSTimeInterval duration = 2;
     CGFloat fromY = 180;
     CGFloat toY = self.view.frame.size.height - 25;
     
