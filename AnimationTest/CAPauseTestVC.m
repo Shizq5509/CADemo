@@ -170,8 +170,7 @@ typedef enum : NSUInteger {
     _testLayer.timeOffset = 0;
     _testLayer.speed = 1;
     
-    NSLog(@"layerCurrentTime:%f",[_testLayer convertTime:CACurrentMediaTime() fromLayer:nil]);
-    NSLog(@"currentTime:%f",CACurrentMediaTime());
+      NSLog(@"currentTime:%f",CACurrentMediaTime());
     NSLog(@"layerTimeOffset:%f",_testLayer.timeOffset);
     NSLog(@"beginTime:%f",_testLayer.beginTime);
 }
@@ -199,6 +198,8 @@ typedef enum : NSUInteger {
     {
         _testLayer.timeOffset += 3*(_slider.value - _sliderValue);
         _testLayer2.timeOffset += 3*(_slider.value - _sliderValue);
+//        _testLayer.timeOffset = 3*(_slider.value);
+//        _testLayer2.timeOffset = 3*(_slider.value);
     }
     
     NSLog(@"layerCurrentTime:%f",[_testLayer convertTime:CACurrentMediaTime() fromLayer:nil]);
